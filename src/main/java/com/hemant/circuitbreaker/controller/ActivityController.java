@@ -1,9 +1,9 @@
-package com.techprimers.circuitbreaker.controller;
+package com.hemant.circuitbreaker.controller;
 
-import com.techprimers.circuitbreaker.model.Activity;
+import com.hemant.circuitbreaker.model.Activity;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +24,10 @@ public class ActivityController {
     }
 
     @GetMapping
-    @CircuitBreaker(name = "randomActivity", fallbackMethod = "fallbackRandomActivity")
+   // @CircuitBreaker(name = "randomActivity", fallbackMethod = "fallbackRandomActivity")
+    @Retry(name = "default", fallbackMethod = "fallbackRandomActivity")
     public String getRandomActivity() {
+        log.info("Activity ");
         ResponseEntity<Activity> responseEntity = restTemplate.getForEntity(BORED_API, Activity.class);
         Activity activity = responseEntity.getBody();
         log.info("Activity received: " + activity.getActivity());
@@ -33,7 +35,8 @@ public class ActivityController {
     }
 
     public String fallbackRandomActivity(Throwable throwable) {
-        return "Watch a video from TechPrimers";
+        log.error(throwable.getMessage());
+        return "Please visit github.com/hemantjava";
     }
 
 }

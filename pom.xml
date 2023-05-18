@@ -8,7 +8,7 @@
 		<version>3.0.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.techprimers</groupId>
+	<groupId>com.hemant</groupId>
 	<artifactId>circuitbreaker-resilience4j</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>circuitbreaker-resilience4j</name>

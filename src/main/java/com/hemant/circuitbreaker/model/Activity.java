@@ -1,4 +1,4 @@
-package com.techprimers.circuitbreaker.model;
+package com.hemant.circuitbreaker.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

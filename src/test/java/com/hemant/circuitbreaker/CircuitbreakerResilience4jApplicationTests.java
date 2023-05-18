@@ -1,4 +1,4 @@
-package com.techprimers.circuitbreaker;
+package com.hemant.circuitbreaker;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -3,4 +3,4 @@
 ![Architecture](./architecture.png)
 
 ## Endpoints
-- `http://localhost:8080/activity` returns random activity from `boredapi.com`
+[endpoin](http://localhost:8080/activity) returns random activity from `boredapi.com`
